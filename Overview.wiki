@@ -1,0 +1,72 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div style="text-align: left;">[[TableOfContents|Table of Contents]] | [[Doradus_Administration|Previous]] | [[Installing_and_Running_Doradus|Next]] | [[Index|Index]]</div>
+  <div style="color: #999999; font-family: sans-serif; font-size: 10pt; text-align: left;">Overview</div>
+  <hr />
+  <div style="color: #345A8A; font-family: &quot;Museo For Dell Regular&quot;; font-size: 14pt; font-weight: bold; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0LQ0HA">Overview</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0KQ0HA">This document provides configuration and operation guidelines for the Doradus database management system. It provides information on the following topics:</span></div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E0JQ0HA">Deploying Doradus in a minimal environment.</span></div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E0IQ0HA">Expanding the deployment to accommodate additional capacity.</span></div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E0HQ0HA">Security considerations and configuration.</span></div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E0GQ0HA">Cassandra and Doradus configuration options.</span></div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E0FQ0HA">Monitoring Doradus and Cassandra via JMX.</span></div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0EQ0HA">The following documents are also available:</span></div>
+  <div style="margin-left: 18pt;margin-bottom: 10pt; margin-top: 10pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="font-weight: bold;"><span id="wwpID0E0DQ0HA">Doradus Data Model and Query Language</span></span>: Provides a detailed description of the core Doradus data model, query language (DQL), and object and aggregate query commands.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 10pt; margin-top: 10pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="font-weight: bold;"><span id="wwpID0E0CQ0HA">Doradus OLAP Database</span></span>: Describes the features, data model extensions, and REST commands specific to the Doradus OLAP service.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 10pt; margin-top: 10pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="font-weight: bold;"><span id="wwpID0E0BQ0HA">Doradus Spider Database</span></span>: Describes the features, data model extensions, and REST commands specific to the Doradus Spider service.</div></td>
+      </tr>
+    </table>
+  </div>
+</div>

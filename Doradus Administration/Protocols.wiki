@@ -1,0 +1,48 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div style="text-align: left;">[[TableOfContents|Table of Contents]] | [[Security_Considerations|Previous]] | [[Configuration_and_Data_Files|Next]] | [[Index|Index]]</div>
+  <div style="color: #999999; font-family: sans-serif; font-size: 10pt; text-align: left;">
+    <span>[[Deployment_Guidelines|Deployment Guidelines]]</span> : <span>[[Security_Considerations|Security Considerations]]</span> : Protocols</div>
+  <hr />
+  <div style="color: #4F81BD; font-family: Calibri; font-size: 12pt; font-weight: bold; margin-bottom: 0pt; margin-top: 10pt;"><span id="wwpID0E0ZM0HA">Protocols</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0YM0HA">The protocols used by Doradus and Cassandra and their security considerations are summarized below:</span></div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="font-weight: bold;"><span id="wwpID0E0XM0HA">Doradus REST API</span></span>: This is the primary protocol used by applications to update and query objects. Doradus does not provide application-level security features: an application that can successfully connect to Doradus can update and access all objects. However, Doradus allows the REST API to be configured to use TLS (SSL), and it can restrict connections to those that provide a specific client-side certificate.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="font-weight: bold;"><span id="wwpID0E0WM0HA">Doradus JMX API</span></span>: Doradus uses the standard Java Management Extensions (JMX) protocol for monitoring and to perform operational functions such as backup and recovery. Though application data is not transferred over the JMX API, access to it can be restricted to prevent unintended operational functions. The JMX API can be secured with authentication and/or TLS.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="font-weight: bold;"><span id="wwpID0E0VM0HA">Cassandra Thrift API</span></span>: This is the primary application protocol for Cassandra. Encryption support (TLS) for this protocol was added with the 1.2.0 release, however Doradus does not yet support this. Alternatively, simple user/password-based authorization is available, and Doradus can be configured to use this option.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="font-weight: bold;"><span id="wwpID0E0UM0HA">Cassandra JMX API</span></span>: Cassandra also uses the JMX protocol for monitoring and to perform certain operational functions. JMX can be configured to require authorization and/or to encrypt data using TLS.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="font-weight: bold;"><span id="wwpID0E0TM0HA">Cassandra Gossip API</span></span>: This is an inter-node communication protocol used by Cassandra to replicate data, coordinate schema changes, and perform other activities. The protocol can be configured to use TLS for encryption, however, because of the high-volume nature of this protocol, encryption is not recommended except for cross-data center communication.</div></td>
+      </tr>
+    </table>
+  </div>
+</div>

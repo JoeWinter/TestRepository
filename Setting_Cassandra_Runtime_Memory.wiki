@@ -1,0 +1,13 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div style="text-align: left;">[[TableOfContents|Table of Contents]] | [[Cassandra_Script_Files|Previous]] | [[Disabling_Assertions|Next]] | [[Index|Index]]</div>
+  <div style="color: #999999; font-family: sans-serif; font-size: 10pt; text-align: left;">
+    <span>[[Cassandra_Configuration_and_Operation|Cassandra Configuration and Operation]]</span> : <span>[[Cassandra_Script_Files|Cassandra Script Files]]</span> : Setting Cassandra Runtime Memory</div>
+  <hr />
+  <div style="color: #4F81BD; font-family: Calibri; font-size: 12pt; font-weight: bold; margin-bottom: 0pt; margin-top: 10pt;"><span id="wwpID0E0KF0HA">Setting Cassandra Runtime Memory</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0JF0HA">By default, Cassandra is set to use only 1GB of memory. This is OK for testing on a developer workstation, but for production work, 8GB to 16GB of memory is recommended. This is controlled by the </span><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">-Xms</span> and <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">-Xmx</span> parameters. Within the <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">{cassandra_home}/bin/cassandra.bat</span>, these values are explicitly defined and can be modified as shown below:</div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0IF0HA">set JAVA_OPTS=^</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0HF0HA"> </span><span style="font-weight: bold;">-Xms8G</span>^</div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0GF0HA"> </span><span style="font-weight: bold;">-Xmx8G</span>^</div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0FF0HA"> ...</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0EF0HA">For use by Doradus, 8GB is the recommended minimum memory. If the machine has 32GB of physical memory or more, 16GB is the recommended memory allocated to Cassandra.</span></div>
+</div>

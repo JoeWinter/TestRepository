@@ -1,0 +1,5 @@
+<div xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <div style="text-align: left;">[[TableOfContents|Table of Contents]] | [[Monitoring_Cassandra|Previous]] | Next | Index</div>
+  <hr />
+  <h2>Index</h2>
+</div>

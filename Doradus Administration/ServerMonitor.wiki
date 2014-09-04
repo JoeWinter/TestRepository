@@ -1,0 +1,90 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div style="text-align: left;">[[TableOfContents|Table of Contents]] | [[Managing_Doradus_via_JMX|Previous]] | [[StorageManager|Next]] | [[Index|Index]]</div>
+  <div style="color: #999999; font-family: sans-serif; font-size: 10pt; text-align: left;">
+    <span>[[Doradus_Configuration_and_Operation|Doradus Configuration and Operation]]</span> : <span>[[Managing_Doradus_via_JMX|Managing Doradus via JMX]]</span> : ServerMonitor</div>
+  <hr />
+  <div style="color: #4F81BD; font-family: Calibri; font-size: 12pt; font-weight: bold; margin-bottom: 0pt; margin-top: 10pt;"><span id="wwpID0E01F0HA">ServerMonitor</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0E0ZF0HA">ServerMonitor</span></span> provides the following attributes:</div>
+  <table style="border-collapse: collapse; margin-left: 36pt; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt; width: 482.4pt;" cellspacing="0" summary="">
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt; width: 144pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="font-weight: bold;"><span id="wwpID0EABJ0YF0HA">Attribute Name</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt; width: 338.4pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="font-weight: bold;"><span id="wwpID0EAAJ0YF0HA">Description</span></span></div>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0EABI0YF0HA">AllRequests</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span id="wwpID0EAAI0YF0HA">Provides a composite set of values about REST API requests such as the total number of requests, the number of failed requests, and the reason of the last request failure.</span></div>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0EABH0YF0HA">ConnectionsCount</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span id="wwpID0EAAH0YF0HA">The current number of REST API connections.</span></div>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0EABG0YF0HA">DatabaseLink</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span id="wwpID0EAAG0YF0HA">Indicates if the Cassandra database being accessed is local (1), remote (2), or not yet known (0).</span></div>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0EABF0YF0HA">RecentRequests</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span id="wwpID0EAAF0YF0HA">A composite value set similar to </span><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">AllRequests</span> but for REST API requests made since the last time <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">RecentRequests</span> was accessed.</div>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0EABE0YF0HA">ReleaseVersion</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span id="wwpID0EAAE0YF0HA">The Doradus Server release version.</span></div>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0EABD0YF0HA">ServerConfig</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span id="wwpID0EAAD0YF0HA">Lists configuration doradus.yaml settings, including value overridden by runtime arguments.</span></div>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0EABC0YF0HA">StartTime</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span id="wwpID0EAAC0YF0HA">Provides the start time of the Doradus server as a </span><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">Date.getTime()</span> value.</div>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0EABB0YF0HA">Throughput</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span id="wwpID0EAAB0YF0HA">Provides a histogram of REST API request response times in seconds for various sampling rates (e.g., 1 minute, 5 minutes, 15 minutes.)</span></div>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0EABA0YF0HA">WorkingDirectory</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span id="wwpID0EAAA0YF0HA">The working directory of the Doradus server.</span></div>
+      </td>
+    </tr>
+  </table>
+</div>

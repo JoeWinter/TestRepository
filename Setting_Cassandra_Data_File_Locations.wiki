@@ -1,0 +1,41 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div style="text-align: left;">[[TableOfContents|Table of Contents]] | [[Setting_Cassandra_Logging_Options|Previous]] | [[Cassandra_Security_Options|Next]] | [[Index|Index]]</div>
+  <div style="color: #999999; font-family: sans-serif; font-size: 10pt; text-align: left;">
+    <span>[[Cassandra_Configuration_and_Operation|Cassandra Configuration and Operation]]</span> : <span>[[Cassandra_Configuration_Files|Cassandra Configuration Files]]</span> : Setting Cassandra Data File Locations</div>
+  <hr />
+  <div style="color: #4F81BD; font-family: Calibri; font-size: 12pt; font-weight: bold; margin-bottom: 0pt; margin-top: 10pt;"><span id="wwpID0E0TE0HA">Setting Cassandra Data File Locations</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0SE0HA">Cassandra creates three kinds of data files: commit logs, SSTables, and saved caches. (Somewhat confusingly, the SSTable files are sometimes called “data files” even though all three kinds of files hold data.) The folder path of each file kind is defined in </span><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">cassandra.yaml</span>. You should change all of the following folder options:</div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0RE0HA">commitlog_directory: /var/lib/cassandra/commitlog</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-left: 36pt; margin-top: 12pt;"><span id="wwpID0E0QE0HA">Set this option to the folder where commit logs should be stored. It should be a different disk than any of the SSTable disks (see below). Multiple commit logs are created in this folder, but they are deleted when they become obsolete, so typically commit logs do not require a lot of space.</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0E0PE0HA">data_file_directories:</span></span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0E0OE0HA">    - /var/lib/cassandra/data</span></span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-left: 36pt; margin-top: 12pt;"><span id="wwpID0E0NE0HA">Set this option to at least one root folder where SSTable files are to be stored. SSTables are the primary files containing application data. Each folder is listed on a secondary line, indented and beginning with a dash. Multiple data folders are recommended for better performance (see below).</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0ME0HA">saved_caches_directory: /var/lib/cassandra/saved_caches</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-left: 36pt; margin-top: 12pt;"><span id="wwpID0E0LE0HA">Set this option to a valid folder name where Cassandra will save key and row caches that it builds. It can be the same disk as the commit log or where software is installed, but it shouldn’t be one of the SSTable disks. The size of disk space for caches depend on cache option settings.</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0KE0HA">When updates are sent to Cassandra, they are first written to a commit log file. The commit files are “replayed” when a restart occurs, thereby providing recovery for updates that may not have been written to an SSTable file. Because commit logs are removed when they are no longer needed, they typically do not use much disk space.</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0JE0HA">After updates are written to the commit log, they are stored in memory and eventually sorted and flushed to disk as SSTables. Each SSTable is represented by multiple files including data, hash, and index files. When Cassandra is configured with multiple data file directories, it flushes each SSTable to the directory that has the most available space. Therefore, best practices for the commit log and SSTable files are:</span></div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">1.	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E0IE0HA">Each SSTable folder should reside on a separate disk. This allows concurrent I/Os: a separate I/O can be initiated for each disk.</span></div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">2.	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E0HE0HA">Each SSTable disk should be of the same size and used solely for SSTables. This prevents disk contention with other files, and it allows all disks to grow at the same rate.</span></div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">3.	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E0GE0HA">The commit log folder should reside on its own disk. Because data is flushed quickly as it is received, the commit log folder can receive a high volume of I/O, hence it should use its own disk to prevent contention with SSTable files. The disk does not have to be large since commit logs are discarded fairly quickly.</span></div></td>
+      </tr>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div style="text-align: left;">[[TableOfContents|Table of Contents]] | [[Securing_the_Doradus_REST_API|Previous]] | [[Using_a_Secured_Thrift_API|Next]] | [[Index|Index]]</div>
+  <div style="color: #999999; font-family: sans-serif; font-size: 10pt; text-align: left;">
+    <span>[[Doradus_Configuration_and_Operation|Doradus Configuration and Operation]]</span> : <span>[[Doradus_Configuration_Files|Doradus Configuration Files]]</span> : <span>[[Doradus_Security_Options|Doradus Security Options]]</span> : Securing the Doradus JMX API</div>
+  <hr />
+  <div style="color: #4F81BD; font-family: &quot;Museo For Dell Regular&quot;; font-size: 11pt; font-style: italic; font-weight: bold; margin-bottom: 0pt; margin-top: 10pt;"><span id="wwpID0E0UK0HA">Securing the Doradus JMX API</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0TK0HA">Doradus supports the Java Management Extensions (JMX) protocol for monitoring Doradus and performing certain administrative commands. JMX can be secured with authorization and/or encryption, however, security JMX security is disabled in the </span><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">{doradus_home}/bin/doradus-server.bat</span> file included with Doradus. The common JMX options are defined in variables at the top of the file as shown below:</div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0SK0HA">set JMX_PORT=9999</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0RK0HA">set JMX_SSL=false</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0QK0HA">set JMX_AUTHENTICATE=false</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0PK0HA">These options are summarized below:</span></div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: bold;"><span id="wwpID0E0OK0HA">JMX_PORT</span></span>: This variable sets the <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">com.sun.management.jmxremote.port</span> define in the JVM, which is the port number that the remote JMX clients must use. As shown, port 9999 is the default used for Doradus.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: bold;"><span id="wwpID0E0NK0HA">JMX_SSL</span></span>: This variable sets the <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">com.sun.management.jmxremote.ssl</span> define in the JVM. When set to <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">true</span>, it requires remote clients to use SSL (TLS) to connect to the JMX port. When SSL is enabled, additional options are available to require remote clients to have a client-side certificate.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: bold;"><span id="wwpID0E0MK0HA">JMX_AUTHENTICATE</span></span>: This variable sets the <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">com.sun.management.jmxremote.authenticate</span> define in the JVM. When set to true, it requires remote clients to provide a user ID and password in order to connect. Additional parameters are required to define allowed user IDs and passwords and the locations of the corresponding files.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0LK0HA">Because JMX is a standard and external documentation is available for securing JMX, details for using SSL and/or authentication are not covered here. See for example the following:</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt; text-indent: 18pt;"><span style="color: #0000FF; text-decoration: underline;"><span id="wwpID0E0KK0HA">[[http://docs.oracle.com/javase/6/docs/technotes/guides/management/agent.html|http://docs.oracle.com/javase/6/docs/technotes/guides/management/agent.html]]</span></span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0JK0HA">Though not shown above, here is another useful option: On multi-homed systems, </span><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">java.rmi.server.hostname</span> can be set to a specific IP address, causing JMX to bind to that address instead of the default one. For example:</div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0IK0HA">set JAVA_OPTS=</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0HK0HA">...</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0GK0HA"> -D</span><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">java.rmi.server.hostname</span>=10.1.82.121^</div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0FK0HA">...</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0EK0HA">This causes the JMX port to bind to address 10.1.82.121.</span></div>
+</div>

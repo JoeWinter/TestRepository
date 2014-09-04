@@ -1,0 +1,25 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div style="text-align: left;">[[TableOfContents|Table of Contents]] | [[Background_Tasks_Parameters|Previous]] | [[ServerMonitor|Next]] | [[Index|Index]]</div>
+  <div style="color: #999999; font-family: sans-serif; font-size: 10pt; text-align: left;">
+    <span>[[Doradus_Configuration_and_Operation|Doradus Configuration and Operation]]</span> : Managing Doradus via JMX</div>
+  <hr />
+  <div style="color: #345A8A; font-family: &quot;Museo For Dell Regular&quot;; font-size: 13pt; font-weight: bold; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E06F0HA">Managing Doradus via JMX</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E05F0HA">Doradus extends the Java JMX API with monitoring and administration features. JMX functions can be accessed with off-the-shelf JMX applications such as JConsole, which is bundled with the Java SDK. JMX functions are available from two </span><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">MXBean</span> objects:</div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0E04F0HA">com.dell.doradus.ServerMonitor</span></span>: This <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">MXBean</span> provides information about the Doradus server including its configuration, start time, and statistics about REST commands.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0E03F0HA">com.dell.doradus.StorageManager</span></span>: This <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">MXBean</span> provides information used by the Doradus Task Manager to conduct background tasks. It also provides operations for modifying tasks and to execute Cassandra backup and recovery tasks.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E02F0HA">JMX functions only collect and return information when the Doradus MBean service (</span><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">com.dell.doradus.mbeans.MBeanService</span>) has been initialized. This is always the case when the server is started as a standalone process but optional when Doradus is embedded within another application.</div>
+</div>

@@ -1,0 +1,173 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div style="text-align: left;">[[TableOfContents|Table of Contents]] | [[ServerMonitor|Previous]] | [[Cassandra_Configuration_and_Operation|Next]] | [[Index|Index]]</div>
+  <div style="color: #999999; font-family: sans-serif; font-size: 10pt; text-align: left;">
+    <span>[[Doradus_Configuration_and_Operation|Doradus Configuration and Operation]]</span> : <span>[[Managing_Doradus_via_JMX|Managing Doradus via JMX]]</span> : StorageManager</div>
+  <hr />
+  <div style="color: #4F81BD; font-family: Calibri; font-size: 12pt; font-weight: bold; margin-bottom: 0pt; margin-top: 10pt;"><span id="wwpID0E0XF0HA">StorageManager</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0E0WF0HA">StorageManager</span></span> is operative only when the Task Manager service has been initialized (<span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">com.dell.doradus.service.taskmanager.TaskManagerService</span>). This is always the case when the server is started as a standalone process but optional when Doradus is embedded within another application. <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">StorageManager</span> provides the following attributes:</div>
+  <table style="border-collapse: collapse; margin-left: 36pt; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt; width: 482.4pt;" cellspacing="0" summary="">
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt; width: 144pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="font-weight: bold;"><span id="wwpID0EABJ0VF0HA">Attribute Name</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt; width: 338.4pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="font-weight: bold;"><span id="wwpID0EAAJ0VF0HA">Description</span></span></div>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0EABI0VF0HA">AppNames</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span id="wwpID0EAAI0VF0HA">The Doradus application names known to the Task Manager.</span></div>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0EABH0VF0HA">GlobalDefaultSettings</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span id="wwpID0EAAH0VF0HA">The global task schedule settings, which are used for tasks that do not have a more specific (e.g., application- or table-specific) schedule default. The global schedule is usually "never", meaning no default schedule is applied to tasks.</span></div>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0EABG0VF0HA">JobList</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span id="wwpID0EAAG0VF0HA">The list of tasks currently executing.</span></div>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0EABF0VF0HA">NodesCount</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span id="wwpID0EAAF0VF0HA">The number of Cassandra nodes in the cluster.</span></div>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0EABE0VF0HA">OS</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span id="wwpID0EAAE0VF0HA">The operating system of the Doradus server.</span></div>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0EABD0VF0HA">OperationMode</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span id="wwpID0EAAD0VF0HA">The operation mode of the first connected Cassandra mode (NORMAL, LEAVING, JOINING, etc.)</span></div>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0EABC0VF0HA">RecentJob</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span id="wwpID0EAAC0VF0HA">Attributes about the most recent job executed through the </span><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">StorageManager</span> interface.</div>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0EABB0VF0HA">ReleaseVersion</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span id="wwpID0EAAB0VF0HA">The Doradus server release version.</span></div>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0EABA0VF0HA">StartMode</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span id="wwpID0EAAA0VF0HA">The execution mode of the first connected Cassandra node: 1 (FOREGROUND), 2 (BACKGROUND), or 0 (UNKNOWN).</span></div>
+      </td>
+    </tr>
+  </table>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0UF0HA">The </span><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">StorageManager</span> <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">MXBean</span> also provides operations that perform basic administrative functions, summarized below:</div>
+  <table style="border-collapse: collapse; margin-left: 36pt; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt; width: 482.4pt;" cellspacing="0" summary="">
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt; width: 157.05pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="font-weight: bold;"><span id="wwpID0EABJ0TF0HA">Operation Name</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt; width: 325.35pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="font-weight: bold;"><span id="wwpID0EAAJ0TF0HA">Description</span></span></div>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0EABI0TF0HA">getJobByID</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span id="wwpID0EAAI0TF0HA">Get the status of a job with a specific ID.</span></div>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0EABH0TF0HA">startCreateSnapshot</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span id="wwpID0EAAH0TF0HA">Start a task to create a backup snapshot of the first Cassandra node connected to the Doradus server, assigning the snapshot a name.</span></div>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0EABG0TF0HA">startDeleteSnapshot</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span id="wwpID0EAAG0TF0HA">Delete a backup snapshot with a given name.</span></div>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0EABF0TF0HA">startRestoreFromSnapshot</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span id="wwpID0EAAF0TF0HA">Restore the Cassandra node connected to the Doradus server from a given snapshot game.</span></div>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0EABE0TF0HA">sendInterruptTaskCommand</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span id="wwpID0EAAE0TF0HA">Interrupt an executing task with a given name, belonging to a given application.</span></div>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0EABD0TF0HA">sendSuspectSchedulingCommand</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span id="wwpID0EAAD0TF0HA">Suspend the scheduling of a task with a given name, belonging to a given application.</span></div>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0EABC0TF0HA">sendResumeSchedulingCommand</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span id="wwpID0EAAC0TF0HA">Resume the scheduling of a task with a given name, belonging to a given application.</span></div>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0EABB0TF0HA">getAppSettings</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span id="wwpID0EAAB0TF0HA">Get the default task schedule settings for a given application name.</span></div>
+      </td>
+    </tr>
+    <tr>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0EABA0TF0HA">getTaskStatus</span></span></div>
+      </td>
+      <td style="border-bottom-color: #000000; border-bottom-style: solid; border-bottom-width: 1px; border-left-color: #000000; border-left-style: solid; border-left-width: 1px; border-right-color: #000000; border-right-style: solid; border-right-width: 1px; border-top-color: #000000; border-top-style: solid; border-top-width: 1px; padding-bottom: 0pt; padding-left: 5.4pt; padding-right: 5.4pt; padding-top: 0pt;">
+        <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 0pt; margin-top: 0pt;"><span id="wwpID0EAAA0TF0HA">Get the status of a task with a given name, belonging to a given application.</span></div>
+      </td>
+    </tr>
+  </table>
+</div>

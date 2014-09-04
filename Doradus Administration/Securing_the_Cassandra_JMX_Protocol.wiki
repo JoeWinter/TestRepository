@@ -1,0 +1,46 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div style="text-align: left;">[[TableOfContents|Table of Contents]] | [[Securing_the_Thrift_Protocol|Previous]] | [[Securing_the_Cassandra_Gossip_Protocol|Next]] | [[Index|Index]]</div>
+  <div style="color: #999999; font-family: sans-serif; font-size: 10pt; text-align: left;">
+    <span>[[Cassandra_Configuration_and_Operation|Cassandra Configuration and Operation]]</span> : <span>[[Cassandra_Configuration_Files|Cassandra Configuration Files]]</span> : <span>[[Cassandra_Security_Options|Cassandra Security Options]]</span> : Securing the Cassandra JMX Protocol</div>
+  <hr />
+  <div style="color: #4F81BD; font-family: &quot;Museo For Dell Regular&quot;; font-size: 11pt; font-style: italic; font-weight: bold; margin-bottom: 0pt; margin-top: 10pt;"><span id="wwpID0E0QC0HA">Securing the Cassandra JMX Protocol</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0PC0HA">Cassandra supports the Java Management Extensions (JMX) protocol for monitoring and controlling Cassandra processes. JMX can be secured with authorization and/or encryption, however, JMX security is disabled in the </span><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">{cassandra_home}/bin/cassandra.bat</span> file that is included with Doradus. The common JMX options are defined in the JAVA_OPTS environment variable as shown below:</div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0OC0HA">REM ***** JAVA options *****</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0NC0HA">set JAVA_OPTS=-ea^</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0MC0HA"> ...</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0LC0HA"> -Dcom.sun.management.jmxremote.</span><span style="font-weight: bold;">port</span>=7199^</div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0KC0HA"> -Dcom.sun.management.jmxremote.</span><span style="font-weight: bold;">ssl</span>=false^</div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0JC0HA"> -Dcom.sun.management.jmxremote.</span><span style="font-weight: bold;">authenticate</span>=false^</div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0IC0HA"> ...</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0HC0HA">These options are summarized below:</span></div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: bold;"><span id="wwpID0E0GC0HA">port</span></span>: This sets the port number that the remote JMX clients must use. As shown, port 7199 is the default used for Cassandra.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: bold;"><span id="wwpID0E0FC0HA">ssl</span></span>: When set to true, this option requires remote clients to use SSL (TLS) to connect to the JMX port. When SSL is enabled, additional options are available to require remote clients to have a client-side certificate.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: bold;"><span id="wwpID0E0EC0HA">authenticate</span></span>: When set to true, this option requires remote clients to provide a user ID and password in order to connection. Additional parameters are required to define allowed user IDs and passwords and the locations of the corresponding files.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0DC0HA">Because JMX is a standard and external documentation is available for securing JMX, details for using SSL and/or authentication are not covered here. See for example the following:</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt; text-indent: 18pt;"><span style="color: #0000FF; text-decoration: underline;"><span id="wwpID0E0CC0HA">[[http://docs.oracle.com/javase/6/docs/technotes/guides/management/agent.html|http://docs.oracle.com/javase/6/docs/technotes/guides/management/agent.html]]</span></span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0BC0HA">Though not shown above, here is another useful option: On multi-homed systems, the define </span><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">java.rmi.server.hostname</span> can be set to cause JMX to bind to a specific IP address instead of the default one. For example:</div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0AC0HA">set JAVA_OPTS=-D</span><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">java.rmi.server.hostname</span>=10.1.82.121^</div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E06B0HA">...</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E05B0HA">This causes the JMX port to bind to address 10.1.82.121.</span></div>
+</div>

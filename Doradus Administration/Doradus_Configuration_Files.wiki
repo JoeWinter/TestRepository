@@ -1,0 +1,32 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div style="text-align: left;">[[TableOfContents|Table of Contents]] | [[Runtime_Memory|Previous]] | [[Setting_Doradus_Logging_Options|Next]] | [[Index|Index]]</div>
+  <div style="color: #999999; font-family: sans-serif; font-size: 10pt; text-align: left;">
+    <span>[[Doradus_Configuration_and_Operation|Doradus Configuration and Operation]]</span> : Doradus Configuration Files</div>
+  <hr />
+  <div style="color: #345A8A; font-family: &quot;Museo For Dell Regular&quot;; font-size: 13pt; font-weight: bold; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E06L0HA">Doradus Configuration Files</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E05L0HA">The following are the primary Doradus configuration files within the </span><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">{doradus_home}/config</span> folder:</div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: bold;"><span id="wwpID0E04L0HA">doradus.yaml</span></span>: This file provides global configuration parameters. Typically only a few parameters merit modification from their defaults.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: bold;"><span id="wwpID0E03L0HA">log4j.properties</span></span>: This file controls logging features of the Doradus instance.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: bold;"><span id="wwpID0E02L0HA">passwd.properties</span></span>: This file contains the user ID and password used when the Thrift protocol is configured to require authentication.</div></td>
+      </tr>
+    </table>
+  </div>
+</div>

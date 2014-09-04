@@ -1,0 +1,19 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div style="text-align: left;">[[TableOfContents|Table of Contents]] | [[Doradus_REST_API_Parameters|Previous]] | [[OLAP_Parameters|Next]] | [[Index|Index]]</div>
+  <div style="color: #999999; font-family: sans-serif; font-size: 10pt; text-align: left;">
+    <span>[[Doradus_Configuration_and_Operation|Doradus Configuration and Operation]]</span> : <span>[[Doradus_Configuration_Files|Doradus Configuration Files]]</span> : <span>[[Configuration_Parameters_in_doradus.yaml|Configuration Parameters in doradus.yaml]]</span> : Doradus Query Parameters</div>
+  <hr />
+  <div style="color: #4F81BD; font-family: &quot;Museo For Dell Regular&quot;; font-size: 11pt; font-style: italic; font-weight: bold; margin-bottom: 0pt; margin-top: 10pt;"><span id="wwpID0E0MH0HA">Doradus Query Parameters</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0LH0HA">These parameters configure defaults used for Doradus object and aggregate query parsing and execution.</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0KH0HA">search_default_page_size: 100</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-left: 36pt; margin-top: 12pt;"><span id="wwpID0E0JH0HA">This value is the default query page size used when an object query does not specify the &amp;s (page size) parameter.</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0IH0HA">aggr_separate_search: false</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0HH0HA">aggr_concurrent_threads: 0</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0GH0HA">dbesoptions_entityBuffer: 1000</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0FH0HA">dbesoptions_linkBuffer: 1000</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0EH0HA">dbesoptions_initialLinkBuffer: 10</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0DH0HA">dbesoptions_initialLinkBufferDimension: 1000</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0CH0HA">dbesoptions_initialScalarBuffer: 30</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0BH0HA">l2r_enable: true</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-left: 36pt; margin-top: 12pt;"><span id="wwpID0E0AH0HA">These parameters are set by the Doradus team and normally should not be changed.</span></div>
+</div>

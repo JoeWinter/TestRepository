@@ -1,0 +1,84 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div style="text-align: left;">[[TableOfContents|Table of Contents]] | [[Multi-Data_Center_Deployments|Previous]] | [[Security_Considerations|Next]] | [[Index|Index]]</div>
+  <div style="color: #999999; font-family: sans-serif; font-size: 10pt; text-align: left;">
+    <span>[[Deployment_Guidelines|Deployment Guidelines]]</span> : Hardware Recommendations</div>
+  <hr />
+  <div style="color: #345A8A; font-family: &quot;Museo For Dell Regular&quot;; font-size: 13pt; font-weight: bold; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0NN0HA">Hardware Recommendations</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0MN0HA">Server class hardware is recommended for Doradus cluster nodes, though “commodity x86” based servers are sufficient, as opposed to high-end servers. The recommended hardware for each node is summarized below:</span></div>
+  <div style="margin-left: 18pt;margin-bottom: 0pt; margin-top: 0pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E0LN0HA">Dual quad core Xeon processors with HT (8 cores, 16 virtual CPUs)</span></div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 0pt; margin-top: 0pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E0KN0HA">32GB of memory</span></div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 0pt; margin-top: 0pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E0JN0HA">2 x 1Gbit NICs</span></div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 0pt; margin-top: 0pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E0IN0HA">4 x hard disks (or more)</span></div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0HN0HA">Software configuration for effectively using CPUs is described later. Two NICs are recommended, configured as follows:</span></div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E0GN0HA">Internode traffic: Each node should have one NIC dedicated for traffic to other nodes. Cassandra will use this connection for replication and coordination. This NIC should be given a static IP address since each node will be configured to know the IP address of other nodes.</span></div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E0FN0HA">External traffic: The other NIC should be dedicated for outbound traffic with applications.</span></div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0EN0HA">A minimum of 4 hard disks are recommended, used as follows:</span></div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E0DN0HA">Disk 1: Operating system and software (i.e., C: drive)</span></div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E0CN0HA">Disk 2: Cassandra commit log</span></div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E0BN0HA">Disks 3 and 4: Cassandra data files (2)</span></div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0AN0HA">The software and commit log disks do not have to be large. The size and number of disks used for Cassandra data files depend on the volume of data expected. A minimum of two disks is recommended to allow parallel I/Os and improved bandwidth. When more data capacity is required for a node, added disks should be allocated to additional data files. Because resiliency is provided by internode replication, configuring disks with RAID is unnecessary.</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E06M0HA">Virtualized hosts are possible but some Cassandra experts </span><span style="color: #0000FF; text-decoration: underline;">[[http://cassandra-user-incubator-apache-org.3065146.n2.nabble.com/Cassandra-benchmarking-on-Rackspace-Cloud-tt5304274.html#a5305866|suggest]]</span> that virtualization adds a 5-15% performance penalty.</div>
+</div>

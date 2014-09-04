@@ -1,0 +1,64 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div style="text-align: left;">[[TableOfContents|Table of Contents]] | [[Configuration_and_Data_Files|Previous]] | [[Doradus_Configuration_and_Operation|Next]] | [[Index|Index]]</div>
+  <div style="color: #999999; font-family: sans-serif; font-size: 10pt; text-align: left;">
+    <span>[[Deployment_Guidelines|Deployment Guidelines]]</span> : <span>[[Security_Considerations|Security Considerations]]</span> : Best Practices</div>
+  <hr />
+  <div style="color: #4F81BD; font-family: Calibri; font-size: 12pt; font-weight: bold; margin-bottom: 0pt; margin-top: 10pt;"><span id="wwpID0E0NM0HA">Best Practices</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0MM0HA">The recommendation best practices for security Doradus and Cassandra protocols and files are summarized below:</span></div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="font-weight: bold;"><span id="wwpID0E0LM0HA">Cluster subset</span></span>: Deploy Doradus/Cassandra nodes on a subnet that is restricted from outside access. If applications reside outside of the subset, enable routing rules that restrict access to the Doradus REST API port.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="font-weight: bold;"><span id="wwpID0E0KM0HA">Doradus REST API</span></span>: Secure the Doradus REST API by configuring it to use TLS. Create a client certificate that is used to restrict access to authorized applications as describe in the section <span style="font-weight: bold;">Securing the Doradus REST API</span>.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="font-weight: bold;"><span id="wwpID0E0JM0HA">Doradus JMX API</span></span>: Use basic user ID/password authentication as described in section <span style="font-weight: bold;">Securing the Doradus JMX API</span>.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="font-weight: bold;"><span id="wwpID0E0IM0HA">Cassandra Thrift API</span></span>: Use basic authentication as described in section <span style="font-weight: bold;">Securing the Thrift Protocol</span>.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="font-weight: bold;"><span id="wwpID0E0HM0HA">Cassandra JMX API</span></span>: Use basic user ID/password authentication as described in section <span style="font-weight: bold;">Securing the Cassandra JMX Protocol</span>.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="font-weight: bold;"><span id="wwpID0E0GM0HA">Doradus and Cassandra configuration files</span></span>: Secure the folders in which Doradus and Cassandra are installed, including their bin and conf or config folders.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="font-weight: bold;"><span id="wwpID0E0FM0HA">Cassandra data files</span></span>: Secure the Cassandra data file folders with permissions that restrict access to the user ID under which the Cassandra  process executes. For stronger security, encrypt the data within the file system, e.g., by using the Encrypted File System (EFS) on Windows.</div></td>
+      </tr>
+    </table>
+  </div>
+</div>

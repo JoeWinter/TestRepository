@@ -1,0 +1,8 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div style="text-align: left;">[[TableOfContents|Table of Contents]] | [[Configuring_Doradus_for_Clusters|Previous]] | [[Doradus_Service_Parameters|Next]] | [[Index|Index]]</div>
+  <div style="color: #999999; font-family: sans-serif; font-size: 10pt; text-align: left;">
+    <span>[[Doradus_Configuration_and_Operation|Doradus Configuration and Operation]]</span> : <span>[[Doradus_Configuration_Files|Doradus Configuration Files]]</span> : Configuration Parameters in doradus.yaml</div>
+  <hr />
+  <div style="color: #4F81BD; font-family: Calibri; font-size: 12pt; font-weight: bold; margin-bottom: 0pt; margin-top: 10pt;"><span id="wwpID0E0TJ0HA">Configuration Parameters in </span><span style="color: #4F81BD; font-family: Consolas; font-size: 12pt; font-style: normal; font-weight: normal;">doradus.yaml</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0SJ0HA">This section describes the parameters that can be set in the </span><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">doradus.yaml</span> file. Except as discussed in the previous sections, most of these parameters can be left at their default value. However, there are some values that you should change for clustered configurations, to enable OLAP caching, etc.</div>
+</div>

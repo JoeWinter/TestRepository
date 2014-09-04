@@ -1,0 +1,10 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div style="text-align: left;">[[TableOfContents|Table of Contents]] | [[OLAP_Parameters|Previous]] | [[Background_Tasks_Parameters|Next]] | [[Index|Index]]</div>
+  <div style="color: #999999; font-family: sans-serif; font-size: 10pt; text-align: left;">
+    <span>[[Doradus_Configuration_and_Operation|Doradus Configuration and Operation]]</span> : <span>[[Doradus_Configuration_Files|Doradus Configuration Files]]</span> : <span>[[Configuration_Parameters_in_doradus.yaml|Configuration Parameters in doradus.yaml]]</span> : Spider Parameters</div>
+  <hr />
+  <div style="color: #4F81BD; font-family: &quot;Museo For Dell Regular&quot;; font-size: 11pt; font-style: italic; font-weight: bold; margin-bottom: 0pt; margin-top: 10pt;"><span id="wwpID0E0OG0HA">Spider Parameters</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0NG0HA">These parameters control the operation of the Spider server:</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0MG0HA">batch_mutation_threshold: 10000</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-left: 36pt; margin-top: 12pt;"><span id="wwpID0E0LG0HA">Defines the maximum number of mutations a batch update will queue before flushing to the database. After the mutations are generated for each object in a batch update, Spider checks to see if this threshold has been met and flushes the current mutation batch if it has. Larger values improve performance by reducing Cassandra round trips, but they require larger Thrift API buffer sizes. The default is 10,000.</span></div>
+</div>

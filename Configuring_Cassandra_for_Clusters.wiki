@@ -1,0 +1,130 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div style="text-align: left;">[[TableOfContents|Table of Contents]] | [[Securing_the_Cassandra_Gossip_Protocol|Previous]] | [[Other_Cassandra_Configuration_Options|Next]] | [[Index|Index]]</div>
+  <div style="color: #999999; font-family: sans-serif; font-size: 10pt; text-align: left;">
+    <span>[[Cassandra_Configuration_and_Operation|Cassandra Configuration and Operation]]</span> : <span>[[Cassandra_Configuration_Files|Cassandra Configuration Files]]</span> : Configuring Cassandra for Clusters</div>
+  <hr />
+  <div style="color: #4F81BD; font-family: Calibri; font-size: 12pt; font-weight: bold; margin-bottom: 0pt; margin-top: 10pt;"><span id="wwpID0E0IB0HA">Configuring Cassandra for Clusters</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0HB0HA">By default, Cassandra assumes that it is operating as a stand-alone node. It must be configured to operate in a cluster. The following </span><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">cassandra.yaml</span> options affect a node’s participation in a cluster:</div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0E0GB0HA">cluster_name</span></span>: All nodes in the cluster must have the same name, which differentiates the cluster from other nodes that might be working in the same network or even on the same machine. The default name is “Test Cluster”, so you should change this to something else like “Doradus Cluster”.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0E0FB0HA">initial_token</span></span>: This value defines the beginning range of key values for which the node will be the primary owner. It is not set by default, and it <span style="font-style: italic;">may</span> be valid to leave it unset when configuring a new node. However, for a “balanced” cluster, you will need to set this value for each node.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0E0EB0HA">seeds</span></span>: Seeds are IP addresses of neighboring nodes that this node can contact using the gossip protocol. The addresses provide only an initial set: after a node is running, it will memorize the addresses of other nodes in the network and contact them when necessary. The seeds are therefore necessary for the initial execution of a new node. Cassandra provides a generalized “seed provider” interface, but the built-in “simple seed provider” is sufficient for most situations.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0E0DB0HA">listen_address</span></span>: This is the IP address that tells other nodes what IP address to use to communicate to this node. To participate in a cluster, you must change this from its default of “localhost”. A host name can be used but is not recommended. The “any address” 0.0.0.0 will not work. You should use a static IP address visible to all other nodes. If the machine is multi-homed, a non-externally visible address (192.x or 10.x) is a good choice.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0E0CB0HA">partitioner</span></span>: Beginning with the Cassandra 1.2 release, the default for this parameter is now <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">Murmur3Partitioner</span>. This random partitioning algorithm is more efficient than the older <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">RandomPartitioner</span> scheme, although the two are incompatible. All nodes in the cluster should use the same partitioning scheme. If you upgrade from an older Cassandra release, you’ll need to ensure this parameter matches your existing value.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0BB0HA">For more details on Cassandra configuration options, see </span><span style="color: #0000FF; text-decoration: underline;">[[http://wiki.apache.org/cassandra/Operations|http://wiki.apache.org/cassandra/Operations]]</span>. The Wiki site also has information on topics such as:</div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E0AB0HA">Adding new nodes to an existing cluster</span></div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E6HA">Migrating from the older to newer random partitioning scheme</span></div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E5HA">Recovering a node that has died</span></div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E4HA">Removing a node from the cluster</span></div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E3HA">Changing a cluster’s replication factor</span></div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E2HA">Deploying larger clusters within multiple </span><span style="font-style: italic;">racks</span> (cabinets) and even <span style="font-style: italic;">data centers</span></div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E1HA">In addition to the Wiki site, there are several online sources and books on Cassandra configuration such as:</span></div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="color: #000000;">•	</span></div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0EZHA">The Cassandra web site </span><span style="color: #0000FF; text-decoration: underline;">[[http://cassandra.apache.org/|http://cassandra.apache.org/]]</span> and especially the Operations page: <span style="color: #0000FF; text-decoration: underline;">[[http://wiki.apache.org/cassandra/Operations|http://wiki.apache.org/cassandra/Operations]]</span></div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0EYHA">The Planet Cassandra user community site: </span><span style="color: #0000FF; text-decoration: underline;">[[http://planetcassandra.org/|http://planetcassandra.org/]]</span></div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0EXHA">The Datastax web site </span><span style="color: #0000FF; text-decoration: underline;">[[http://www.datastax.com/|http://www.datastax.com/]]</span> and its online documents.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="color: #000000;">•	</span></div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0EWHA">Books such as </span><span style="color: #0000FF; font-style: italic; text-decoration: underline;">[[http://www.amazon.com/Cassandra-Definitive-Guide-Eben-Hewitt/dp/1449390412/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1345667699&amp;sr=1-1&amp;keywords=cassandra+database|Cassandra: The Definitive Guide]]</span> and <span style="color: #0000FF; font-style: italic; text-decoration: underline;">[[http://www.amazon.com/Cassandra-Performance-Cookbook-Edward-Capriolo/dp/1849515123/ref=sr_1_2?s=books&amp;ie=UTF8&amp;qid=1345667699&amp;sr=1-2&amp;keywords=cassandra+database|Cassandra High Performance Cookbook]]</span></div></td>
+      </tr>
+    </table>
+  </div>
+</div>

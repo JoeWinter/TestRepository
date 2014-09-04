@@ -1,0 +1,55 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div style="text-align: left;">[[TableOfContents|Table of Contents]] | [[Securing_the_Cassandra_JMX_Protocol|Previous]] | [[Configuring_Cassandra_for_Clusters|Next]] | [[Index|Index]]</div>
+  <div style="color: #999999; font-family: sans-serif; font-size: 10pt; text-align: left;">
+    <span>[[Cassandra_Configuration_and_Operation|Cassandra Configuration and Operation]]</span> : <span>[[Cassandra_Configuration_Files|Cassandra Configuration Files]]</span> : <span>[[Cassandra_Security_Options|Cassandra Security Options]]</span> : Securing the Cassandra Gossip Protocol</div>
+  <hr />
+  <div style="color: #4F81BD; font-family: &quot;Museo For Dell Regular&quot;; font-size: 11pt; font-style: italic; font-weight: bold; margin-bottom: 0pt; margin-top: 10pt;"><span id="wwpID0E04B0HA">Securing the Cassandra Gossip Protocol</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E03B0HA">In a multi-node cluster, each Cassandra node communicates with peer nodes using the Gossip protocol. For non-encrypted connections, the Gossip protocol uses a TCP port defined by the following </span><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">cassandra.yaml</span> option:</div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E02B0HA">storage_port: 7000</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E01B0HA">When SSL is enabled for the Gossip protocol, the following </span><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">cassandra.yaml</span> file option defines the port number used:</div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0ZB0HA">ssl_storage_port: 7001</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0YB0HA">All nodes in a cluster should be configured to use the same </span><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">storage_port</span> and <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">ssl_storage_port</span>. To prevent eavesdropping or unauthorized disruptions, the gossip protocol should be secured in production environments. However, because the protocol is used for high-performance operations such as replicating data between nodes, encryption is not recommended except for communication between remote locations.</div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0XB0HA">For co-located nodes, the easiest way to secure the Gossip API is to deploy all Cassandra nodes on the same subnet and disallow access to the Gossip port from outside the subnet.</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0WB0HA">In large Cassandra deployments where multiple “racks” or “data centers” are deployed, each having some number of Cassandra nodes, the Gossip protocol can be secured for cross-rack or cross-data center communication. This is done with the following options in the </span><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">cassandra.yaml</span> file:</div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span id="wwpID0E0VB0HA">encryption_options:</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt; text-indent: 18pt;"><span id="wwpID0E0UB0HA">internode_encryption: none</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt; text-indent: 18pt;"><span id="wwpID0E0TB0HA">keystore: conf/.keystore</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt; text-indent: 18pt;"><span id="wwpID0E0SB0HA">keystore_password: cassandra</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt; text-indent: 18pt;"><span id="wwpID0E0RB0HA">truststore: conf/.truststore</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt; text-indent: 18pt;"><span id="wwpID0E0QB0HA">truststore_password: cassandra</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0PB0HA">Internode encryption (over the Gossip API) is enabled or disabled by the setting of the </span><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">internode_encryption</span> option. The following options are recognized:</div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0E0OB0HA">none</span></span>: This disables all inter-node encryption, meaning Cassandra nodes use unencrypted communication using the defined <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">storage_port</span>.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0E0NB0HA">all</span></span>: This enables encryption for all inter-node communication using the defined <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">ssl_storage_port</span>.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0E0MB0HA">rack</span></span>: This uses non-encrypted communication for nodes defined to be in the same rack (cabinet) and encrypted communication between nodes defined to be in different racks.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;"><span id="wwpID0E0LB0HA">dc</span></span>: This uses non-encrypted communication for nodes defined to be in the same data center and encrypted communication between nodes defined to be in different data centers.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0KB0HA">When any encryption is enabled for the Gossip protocol, all authentication, key exchange, and data transfer occurs with TLS v1 using RSA 1024 bit keys. This encryption suite is referred to as TLS_RSA_WITH_AES_128_CBC_SHA. This requires that </span><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">keystore</span> and <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">truststore</span> files are defined and initialized. These files are password-protected using the <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">keystore_password</span> and <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">truststore_password</span> options. Instructions for creating these files can be found publicly, such as in this link:</div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-left: 18pt; margin-top: 12pt;"><span style="color: #0000FF; text-decoration: underline;"><span id="wwpID0E0JB0HA">[[http://docs.oracle.com/javase/6/docs/technotes/guides/security/jsse/JSSERefGuide.html#CreateKeystore|http://docs.oracle.com/javase/6/docs/technotes/guides/security/jsse/JSSERefGuide.html#CreateKeystore]]</span></span></div>
+</div>

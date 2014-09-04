@@ -1,0 +1,73 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div style="text-align: left;">[[TableOfContents|Table of Contents]] | [[Doradus_Security_Options|Previous]] | [[Securing_the_Doradus_JMX_API|Next]] | [[Index|Index]]</div>
+  <div style="color: #999999; font-family: sans-serif; font-size: 10pt; text-align: left;">
+    <span>[[Doradus_Configuration_and_Operation|Doradus Configuration and Operation]]</span> : <span>[[Doradus_Configuration_Files|Doradus Configuration Files]]</span> : <span>[[Doradus_Security_Options|Doradus Security Options]]</span> : Securing the Doradus REST API</div>
+  <hr />
+  <div style="color: #4F81BD; font-family: &quot;Museo For Dell Regular&quot;; font-size: 11pt; font-style: italic; font-weight: bold; margin-bottom: 0pt; margin-top: 10pt;"><span id="wwpID0E0NL0HA">Securing the Doradus REST API</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0ML0HA">By default, the Doradus REST API uses unencrypted HTTP. Because Doradus provides no application-level security, any process that connect to the Doradus REST port is allowed to perform all schema, update, and query commands. The REST API can be secured by enabling TLS (SSL), which encrypts all traffic and uses mutual authentication to restrict access to specific clients. Optionally, client authentication can be enabled to restrict connections to only those whose certificates have been registered at the server. The process for securing the REST port with TLS is defined below:</span></div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">1)	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E0LL0HA">Enable TLS by setting the </span><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">tls</span> parameter in the <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">doradus.yaml</span> file to true. Example:</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 54pt; margin-top: 12pt;"><span id="wwpID0E0KL0HA">tls: true</span></div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">2)	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E0JL0HA">Create a certificate for use by the Doradus server and store it in a keystore file. You can use the </span><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">keytool</span> utility included with the JRE. An overview of the process to create a self-signed certificate is outline here:</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-left: 54pt; margin-top: 12pt;"><span style="color: #0000FF; font-size: 10pt; text-decoration: underline;"><span id="wwpID0E0IL0HA">[[http://docs.oracle.com/javase/6/docs/technotes/guides/security/jsse/JSSERefGuide.html#CreateKeystore|http://docs.oracle.com/javase/6/docs/technotes/guides/security/jsse/JSSERefGuide.html#CreateKeystore]]</span></span></div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">3)	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E0HL0HA">Set the </span><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">keystore</span> parameter in the <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">doradus.yaml</span> file to the location of the <span style="font-weight: bold;">keystore</span> file, and set the <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">keystorepassword</span> parameter to the file’s password. Example:</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 54pt; margin-top: 12pt;"><span id="wwpID0E0GL0HA">keystore: config/keystore</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 54pt; margin-top: 12pt;"><span id="wwpID0E0FL0HA">keystorepassword: mykspassword</span></div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">4)	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E0EL0HA">If client authentication will be used, create a certificate for each client application and import them into a </span><span style="font-weight: bold;">truststore</span> file. (See the same article referenced above.) Set the <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">truststore</span> parameter in the <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">doradus.yaml</span> file to the location of the keystore file, and set the <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">truststorepassword</span> parameter to the file’s password. Example:</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 54pt; margin-top: 12pt;"><span id="wwpID0E0DL0HA">truststore: config/truststore</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 54pt; margin-top: 12pt;"><span id="wwpID0E0CL0HA">truststorepassword: mytspassword</span></div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">5)	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E0BL0HA">To require client authentication, set the </span><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">clientauthentication</span> parameter in the <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">doradus.yaml</span> file. This requires REST API connections to use mutual authentication. Example:</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 54pt; margin-top: 12pt;"><span id="wwpID0E0AL0HA">clientauthentication: true</span></div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">6)	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span id="wwpID0E06K0HA">The cipher algorithms allowed by the REST API when TLS is enabled is controlled via the </span><span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">tls_cipher_suites</span> parameter. The default list includes the algorithms recommended for FIPS compliance. The actual algorithms allowed by REST API is a subset of the listed algorithms and those actually available to the JVM in which Doradus is running. The cipher algorithm list can be tailored, for example, to only allow 256-bit symmetrical encryption. Example:</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 54pt; margin-top: 12pt;"><span id="wwpID0E05K0HA">tls_cipher_suites:</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 54pt; margin-top: 12pt;"><span id="wwpID0E04K0HA">   - TLS_DHE_DSS_WITH_AES_256_CBC_SHA</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 54pt; margin-top: 12pt;"><span id="wwpID0E03K0HA">   - TLS_DHE_RSA_WITH_AES_256_CBC_SHA</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 54pt; margin-top: 12pt;"><span id="wwpID0E02K0HA">   - TLS_RSA_WITH_AES_256_CBC_SHA</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 54pt; margin-top: 12pt;"><span id="wwpID0E01K0HA">   - TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 54pt; margin-top: 12pt;"><span id="wwpID0E0ZK0HA">   - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 54pt; margin-top: 12pt;"><span id="wwpID0E0YK0HA">   - TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA</span></div>
+  <div style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; margin-bottom: 12pt; margin-left: 54pt; margin-top: 12pt;"><span id="wwpID0E0XK0HA">   - TLS_ECDH_RSA_WITH_AES_256_CBC_SHA</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-left: 36pt; margin-top: 12pt;"><span id="wwpID0E0WK0HA">Custom algorithms can also be used as long as installed with the JVM used to run Doradus.</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0VK0HA">With the steps above, Doradus will use TLS for its REST API port, optionally requiring mutual authentication. Clients must connect to the REST port using TLS. If client authentication is enabled, they must submit a certificate that was added to the truststore. Each client must also support one of the configured cipher algorithms.</span></div>
+</div>

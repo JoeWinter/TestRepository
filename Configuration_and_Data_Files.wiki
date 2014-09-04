@@ -1,0 +1,32 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div style="text-align: left;">[[TableOfContents|Table of Contents]] | [[Protocols|Previous]] | [[Best_Practices|Next]] | [[Index|Index]]</div>
+  <div style="color: #999999; font-family: sans-serif; font-size: 10pt; text-align: left;">
+    <span>[[Deployment_Guidelines|Deployment Guidelines]]</span> : <span>[[Security_Considerations|Security Considerations]]</span> : Configuration and Data Files</div>
+  <hr />
+  <div style="color: #4F81BD; font-family: Calibri; font-size: 12pt; font-weight: bold; margin-bottom: 0pt; margin-top: 10pt;"><span id="wwpID0E0SM0HA">Configuration and Data Files</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0RM0HA">The configuration and data files used by Doradus and Cassandra and their security considerations are summarized below:</span></div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="font-weight: bold;"><span id="wwpID0E0QM0HA">Doradus configuration files</span></span>: The primary Doradus configuration file is <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">doradus.yaml</span>. This file and several “properties” files (e.g., <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">passwd.properties</span>, <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">log4j.properties</span>) are stored in the folder <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">{doradus_home}/config</span>. These files should be considered sensitive and secured from unauthorized access.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="font-weight: bold;"><span id="wwpID0E0PM0HA">Cassandra configuration files</span></span>: The primary Cassandra configuration file is <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">cassandra.yaml</span>. This file and other secondary configuration files are stored in the folder <span style="color: #4A442A; font-family: Consolas; font-size: 9.5pt; font-style: normal; font-weight: normal;">{cassandra_home}/conf</span>. These files should be considered sensitive and secured from unauthorized access.</div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="margin-left: 18pt;margin-bottom: 12pt; margin-top: 12pt;">
+    <table border="0" cellspacing="0" cellpadding="0" width="99%" summary="">
+      <tr valign="baseline">
+        <td style="width: 18pt"><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;">•	</div></td>
+        <td><div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt;"><span style="font-weight: bold;"><span id="wwpID0E0OM0HA">Cassandra data files</span></span>: All application data is stored in Cassandra data files, which reside in various folders as described in the section <span style="font-weight: bold;">Setting Cassandra Data File Locations</span>. The data in these files is unencrypted and should be secured from unauthorized access.</div></td>
+      </tr>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<div xmlns="http://www.w3.org/1999/xhtml">
+  <div style="text-align: left;">[[TableOfContents|Table of Contents]] | [[Embedding_Doradus_In_Another_Application|Previous]] | [[Basic_Architecture|Next]] | [[Index|Index]]</div>
+  <div style="color: #999999; font-family: sans-serif; font-size: 10pt; text-align: left;">Deployment Guidelines</div>
+  <hr />
+  <div style="color: #345A8A; font-family: &quot;Museo For Dell Regular&quot;; font-size: 14pt; font-weight: bold; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0WO0HA">Deployment Guidelines</span></div>
+  <div style="font-family: &quot;Museo Sans For Dell Regular&quot;; font-size: 11pt; margin-bottom: 12pt; margin-top: 12pt;"><span id="wwpID0E0VO0HA">This section provides recommendations for deploying and configuring Doradus to meet various operational objectives. We start by describing the basic components of the Doradus architecture.</span></div>
+</div>
